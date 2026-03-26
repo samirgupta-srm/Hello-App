@@ -7,13 +7,22 @@ public class Main {
 
         String output;
 
-        if (args.length > 0) {
-            // Join all names with comma and space
-            String names = String.join(", ", args);
-            output = "Hello, " + names + "!";
-        } else {
+        if (args.length == 0) {
             // Default case
             output = "Hello, World!";
+        } else {
+            // Use StringBuilder for efficient string creation
+            StringBuilder names = new StringBuilder();
+
+            // Enhanced for loop
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
+
+            output = "Hello, " + names.toString() + "!";
         }
 
         System.out.println(output);
