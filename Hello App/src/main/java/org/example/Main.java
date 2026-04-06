@@ -1,7 +1,3 @@
-package org.example;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
@@ -11,18 +7,17 @@ public class Main {
             // Default case
             output = "Hello, World!";
         } else {
-            // Use StringBuilder for efficient string creation
             StringBuilder names = new StringBuilder();
 
-            // Enhanced for loop
+            // Add all names with comma + space
             for (String name : args) {
-                if (names.length() > 0) {
-                    names.append(", ");
-                }
-                names.append(name);
+                names.append(name).append(", ");
             }
 
-            output = "Hello, " + names.toString() + "!";
+            // Remove last ", " using substring
+            String finalNames = names.substring(0, names.length() - 2);
+
+            output = "Hello, " + finalNames + "!";
         }
 
         System.out.println(output);
