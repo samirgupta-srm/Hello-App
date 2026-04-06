@@ -7,17 +7,9 @@ public class Main {
             // Default case
             output = "Hello, World!";
         } else {
-            StringBuilder names = new StringBuilder();
-
-            // Add all names with comma + space
-            for (String name : args) {
-                names.append(name).append(", ");
-            }
-
-            // Remove last ", " using substring
-            String finalNames = names.substring(0, names.length() - 2);
-
-            output = "Hello, " + finalNames + "!";
+            // Use String.join to combine names
+            String names = String.join(", ", args);
+            output = "Hello, " + names + "!";
         }
 
         System.out.println(output);
